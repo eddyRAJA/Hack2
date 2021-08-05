@@ -1,0 +1,86 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <section>
+            <div class="mt-5 ">
+                <h1>All  projects </h1>
+             </div>
+        </section>
+    <section id="new" class="p-5">
+        <div class="row mt-2">
+        {% for project in projects | reverse %}
+        <div class="card-deck col-lg-4">
+			<div class ="card-body">
+				<div class ="card-title">{{ project.author }}</div>
+				</br>
+				{{ project.title }}
+				<div class ="descritpion">
+				{{ project.description }}
+				</div>
+
+		<p>
+
+		</div>
+        <a href="#myModal{{ loop.index }}" data-bs-target="#myModal{{ loop.index }}" data-bs-toggle="modal" class=" btn btn-success rounded align-center"> Find out more </a>
+                    <div class="modal fade" id="myModal{{ loop.index }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class=" modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{project.title}}</h5>
+                                </div>
+                                <div class="modal-body ">
+				                    <div class="card col m-3" style="width: 18rem;">
+                                     <div class="card-body">
+                                      <div class="text-center">
+                                        <h5 class="card-title"> {{ project.author }}</h5>
+                                        <p class="card-text">{{ project.description }} : {{ project.createdAt ? project.createdAt|date('Y-m-d') : '' }}</p> 
+                                        <a href="{{ path("project_show_unity", { id: project.id }) }}" class="btn btn-primary">Show</a>
+                                     </div>
+                                    </div>
+                                 </div>
+                                </div>
+                             </div>
+
+                         </div>
+                    </div>
+        </div>
+        
+    {% else %}
+        Aucun projet trouvé.
+    {% endfor %}
+        </div>
+    </section>
+    </div>
+
+
+
+
+
+ <div class="container">
+					<h1>Find a project that matches your skills :</h1>
+					<div class="container-fluide">
+						<div class="row">
+							<ul class="list-group list-group-horizontal">
+								{% for competence in competences %}
+								<li class="list-group-item">
+										<p><a class="btn btn-dark href="{{ path("project_index", ) }}">{{competence.title}}</a></p></li>
+									{% else %}
+										Aucun projet trouvé.
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+
+<div class="mb-5 text-center">
+   <a href="{{ path('project_new') }}" class="btn btn-success"><h5>Add a project</h5></a>
+</div>
+<div class="p-5 text-end">
+   <a href="{{ path('home') }}" class="btn btn-success"><h5>Back homepage</h5></a>
+</div>
+{% endblock %}

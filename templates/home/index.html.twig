@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	<center>
+		<div class="container">
+			<h1 class="pres">Find your future collaborator
+			</h1>
+			<div class="cadre">
+				<h1 class="title split-character">Your FIVERR extension</h1>
+				<div class="container-fluid">
+					<img src="{{ asset('build/collaboration.png') }}" class="rounded-circle" alt="">
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<a href="{{ path("project_index") }}" class="btn btn-success">See the projects</a>
+				</div>
+				<div class="col-6">
+					<a href="{{ path("project_new")}}" class="btn btn-success">Insert a new project</a>
+
+				</div>
+			</div>
+		</div>
+	</center>
+{% endblock %}

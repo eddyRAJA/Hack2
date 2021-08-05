@@ -1,0 +1,41 @@
+{% block footer %}
+
+	<div class="footer">
+		<div class="d-flex  flex-wrap pt-3" style="background-color: #1dbf73;">
+			<div
+				class="container-fluid ">
+
+				<!--Grid column-->
+				<div class="row ">
+
+					<ul class="col-4">
+
+						<li>
+							<a href="#mentionslegales" class="text-white">Legal notices</a>
+						</li>
+						<li>
+							<a href="#protection_donnees" class="text-white">Protection policy</a>
+						</li>
+					</ul>
+                    <ul class="col-4">
+                    <li>{#{{ now|date("m/d/Y")}}#}</li>
+                    </ul>
+					<div class="col-4 text-white" style=" text-align: right;">
+						<ul>
+
+							<li>
+								About us
+							</li>
+							<li>
+								Places
+							</li>
+							<li>
+								Contact
+							</li>
+						</ul>
+					</div>
+					<div class="text-align-right"></div>
+				</div>
+			</div>
+
+		{% endblock %}

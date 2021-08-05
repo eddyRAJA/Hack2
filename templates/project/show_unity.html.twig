@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index
+{% endblock %}
+{% block body %}
+	<center>
+		<div class="tables">
+			<h1>Project
+				{{ project.id }}</h1>
+
+		</div>
+
+		<div class="tables">
+
+			<tr>
+				<h3 class="cadre-1">Title</h3>
+			</tr>
+		</br>
+		<td>{{ project.title }}</td>
+	</br>
+</br>
+</tr>
+<tr></tr>
+</div>
+<div class="tables">
+<h3>Freelancer</h3>
+</br>
+<td>{{ project.author }}</td>
+</br></br>
+</tr>
+<tr></tr>
+</div>
+<div class="tabless"><h3>Description</h3></br><td>{{ project.description }}</td></br></br></tr> </div>
+ <div class="tables"><tr><h3>CreatedAt</h3></tr> </br> <td>{{ project.createdAt ? project.createdAt|date('Y-m-d') : '' }}</td></br></br></tr><div></center></div></div>
+ </center><li><a href="{{ path('messages') }}"></a></li>
+ <div class="col-6 text-white"><a href="{{path("send")}}" class="btn btn-success">Contact the Freelancer</a></ul></div><div class="text-align-right"></div></div>
+ {% endblock %}
